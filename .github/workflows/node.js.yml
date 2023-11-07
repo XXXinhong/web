@@ -11,7 +11,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    Spermissions:  # Set the permissions for the GITHUB_TOKEN
+    permissions:  # Set the permissions for the GITHUB_TOKEN
       id-token: write
       contents: write
     container: node:16  # This line is optional if you're using actions/setup-node@v3
