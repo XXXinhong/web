@@ -5,24 +5,32 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master" ]  # Make sure this is your default branch where you push your code
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master" ]  # Same here, adjust the branch names if necessary
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    container: node:16
+    container: node:16  # This line is optional if you're using actions/setup-node@v3
     steps:
-
-    - run: node --version
-    - run: npm --version
     - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-    - run: npm install
-    - run: npm run build
-    - uses: JamesIves/github-pages-deploy-action@4.1.0
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
       with:
-        branch: gh-pages
-        folder: build
+        node-version: '16'  # This ensures you use Node version 16
+    - name: Check Node.js and NPM Versions
+      run: |
+        node --version
+        npm --version
+    - name: Install Dependencies
+      run: npm install
+    - name: Build
+      run: npm run build
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.0
+      with:
+        branch: gh-pages  # The branch you're deploying to
+        folder: build  # The folder you're deploying from
+        token: ${{ secrets.GITHUB_TOKEN }}  # This is the token used for authentication
+
