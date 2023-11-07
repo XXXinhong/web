@@ -28,12 +28,11 @@ jobs:
     - name: Build Project
       run: npm run build
 
-    - name: Upload Artifact for Deployment
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-artifact # This name is used to reference the artifact in the deploy step
-        path: build/ # Replace with 'dist/' or wherever your build output is located
-
+    # - name: Upload Artifact for Deployment
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: build-artifact # This name is used to reference the artifact in the deploy step
+    #     path: build/ # Replace with 'dist/' or wherever your build output is located
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v2
       with:
