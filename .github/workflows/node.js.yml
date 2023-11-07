@@ -6,8 +6,6 @@ name: Node.js CI
 on:
   push:
     branches: [ "master" ]  # Make sure this is your default branch where you push your code
-  pull_request:
-    branches: [ "master" ]  # Same here, adjust the branch names if necessary
 
 jobs:
   build:
@@ -30,7 +28,7 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.0
       with:
-        branch: gh-pages  # The branch you're deploying to
-        folder: src  # The folder you're deploying from
+        branch: master  # The branch you're deploying to
+        folder: build  # The folder you're deploying from
         token: ${{ secrets.GITHUB_TOKEN }}  # This is the token used for authentication
 
