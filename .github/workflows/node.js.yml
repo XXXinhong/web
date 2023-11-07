@@ -26,9 +26,9 @@ jobs:
     - name: Build
       run: npm run build
     - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # This token is provided by Actions, no need to create one
-          build_dir: ./build
+      id: deployment
+      uses: actions/deploy-pages@v2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}  # This token is provided by Actions, no need to create one
+        build_dir: ./build
 
