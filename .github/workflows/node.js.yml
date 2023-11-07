@@ -24,5 +24,4 @@ jobs:
     - run: npm run build
     - uses: JamesIves/github-pages-deploy-action@4.1.0
       with:
-        branch: master
         folder: build
