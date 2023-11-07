@@ -25,12 +25,10 @@ jobs:
       run: npm install
     - name: Build
       run: npm run build
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@4.1.0
-      with:
-        branch: master  # The branch you're deploying to
-        folder: build  # The folder you're deploying from
-        token: ${{ secrets.GITHUB_TOKEN }}  # This is the token used for authentication
-    - name: List output files
-      run: ls -l build
+    - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # This token is provided by Actions, no need to create one
+          build_dir: ./build
 
