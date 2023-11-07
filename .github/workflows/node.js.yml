@@ -31,6 +31,6 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@4.1.0
       with:
         branch: gh-pages  # The branch you're deploying to
-        folder: build  # The folder you're deploying from
+        folder: src  # The folder you're deploying from
         token: ${{ secrets.GITHUB_TOKEN }}  # This is the token used for authentication
 
